@@ -24,6 +24,8 @@ public:
 
 	gameController(int windowWidth, int windowHeight);
 	void set_game_status(int status);
+
+	//This will be running 100% of the time
 	void print_game_status(int status);
 };
 

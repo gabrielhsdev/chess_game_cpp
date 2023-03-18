@@ -10,7 +10,7 @@ public:
     double height;
     int squareSize;
     tableSquares squares[64];
-    sf::Vector2i position;
+    sf::Vector2i mouse_position;
 
     //Constructor
     boardStats(int widthExt, int heightExt);

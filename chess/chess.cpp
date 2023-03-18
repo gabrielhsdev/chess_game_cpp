@@ -11,6 +11,7 @@ extern int windowwidth = 1200;
 //Fix mouse position so last seen is always inside window
 sf::Vector2i fix_position(sf::Vector2i position) {
     /*
+    * On mouse click example
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         cout << "sheeeeeeehs";
@@ -43,16 +44,17 @@ int main()
                 window.close();
         }
 
+        //Example of mouse position being passes to other child objects of game controller
         //sf::Vector2i position = sf::Mouse::getPosition(window);
         //cout << position.x << "-" << position.y << "\n";
+        //gameCtrl.mouse_position = position;
 
-        // clear the window with black color
-        myBoard.buildBoard(&window);//test build for our setup
-        // draw everything here...
+
+        //Build stuff here !
+        myBoard.buildBoard(&window);
 
         // end the current frame
         window.display();
     }
-
     return 0;
 }
