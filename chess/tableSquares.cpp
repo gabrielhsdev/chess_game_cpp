@@ -1,5 +1,5 @@
 #include "tableSquares.h"
-
+#include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
 
 }
@@ -39,3 +39,5 @@ void tableSquares::drawSquare(sf::RenderWindow* window){
         window->draw(text);
     }
 }
+
+

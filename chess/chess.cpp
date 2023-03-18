@@ -8,12 +8,23 @@ using namespace std;
 extern int windowheight = 1200;
 extern int windowwidth = 1200;
 
+//Fix mouse position so last seen is always inside window
+sf::Vector2i fix_position(sf::Vector2i position) {
+    /*
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        cout << "sheeeeeeehs";
+    }
+    */
+    return position;
+}
+
 int main()
 {
 
     int squareSize = (windowwidth) / 8;
     boardStats myBoard(windowwidth, windowheight);
-    gameController gameCtrl(300, 300);
+    gameController gameCtrl(windowwidth, windowheight);
 
     // create the window
     sf::RenderWindow window(sf::VideoMode(windowwidth, windowheight), "Not Chess", sf::Style::Titlebar | sf::Style::Close);
@@ -31,6 +42,9 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        //sf::Vector2i position = sf::Mouse::getPosition(window);
+        //cout << position.x << "-" << position.y << "\n";
 
         // clear the window with black color
         myBoard.buildBoard(&window);//test build for our setup
