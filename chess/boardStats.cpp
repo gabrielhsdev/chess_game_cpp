@@ -14,7 +14,6 @@ boardStats::boardStats(int widthExt, int heightExt){
 void boardStats::seutpBoard() {
 
     int count = 0;
-
     int spacing = width/ 8;
     int height = 0;
 
@@ -47,39 +46,8 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
     //window->clear(sf::Color::Blue);//Set background color
     window->clear();
 
-    //Create objects
-    sf::RectangleShape rectangle(sf::Vector2f(150.f, 150.f));
-
-    //Set text
-    sf::Text text;
-    sf::Font font;
-    if (!font.loadFromFile("font.ttf"))
-    {
-        std::cerr << ".Error while loading font" << std::endl;
-        return;
-    }
-    text.setFont(font);
-    text.setCharacterSize(24);
-    text.setFillColor(sf::Color::Black);
-    //Set text end
-
-    //Fill 64 tiles from the objects, call the fillsquare function of each square too to draw its stats
+    //Draw each tile
     for (int i = 0; i < 64; i++) {
-        if ((squares[i].posXid + squares[i].posYid) % 2 == 0) {
-            rectangle.setFillColor(sf::Color(118, 150, 85));
-            rectangle.setPosition(squares[i].posXdraw, squares[i].posYdraw);
-        } else {
-            rectangle.setFillColor(sf::Color(238, 238, 210));
-            rectangle.setPosition(squares[i].posXdraw, squares[i].posYdraw);
-        }
-        window->draw(rectangle);
-
-        //Draw text id
-        if (squares[i].posYid == 0) {
-            text.setPosition(squares[i].posXdraw, squares[i].posYdraw);
-            string s = to_string(squares[i].posXid);
-            text.setString(s);
-            window->draw(text);
-        }
+        squares[i].drawSquare(window);
     }
 }

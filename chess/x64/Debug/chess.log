@@ -1,2 +1,12 @@
-﻿  chess.cpp
+﻿  boardStats.cpp
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\boardStats.cpp(17,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  chess.cpp
+  tableSquares.cpp
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(22,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(22,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(26,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(26,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(37,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(37,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   chess.vcxproj -> C:\Users\Gabriel\Desktop\cpp_pro\chess\x64\Debug\chess.exe
