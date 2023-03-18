@@ -13,19 +13,18 @@ class gameController
 		1 -> Menu
 		2 -> 1x1
 	*/
-	int game_status = 0;
 	int test = 123;;
 
 	//1v1 local board object
 	localBoard local_BOARD;
 public:
 	//Mouse position
+	int game_status = 0;
 	sf::Vector2i mouse_position;
 
 	gameController(int windowWidth, int windowHeight);
-	void set_game_status(int status);
 
 	//This will be running 100% of the time
-	void print_game_status(int status);
+	void print_game_status(sf::RenderWindow* window);
 };
 

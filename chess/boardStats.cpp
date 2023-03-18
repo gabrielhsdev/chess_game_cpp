@@ -43,7 +43,6 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
     //We could also check where our mouse is and make the selected square a little bit brighter
     //window->clear(sf::Color::Blue);//Set background color
     window->clear();
-
     //Draw each tile
     for (int i = 0; i < 64; i++) {
         squares[i].drawSquare(window);

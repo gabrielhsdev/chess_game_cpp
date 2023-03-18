@@ -26,7 +26,7 @@ int main()
     int squareSize = (windowwidth) / 8;
     boardStats myBoard(windowwidth, windowheight);
     gameController gameCtrl(windowwidth, windowheight);
-
+    gameCtrl.game_status = 2;
     // create the window
     sf::RenderWindow window(sf::VideoMode(windowwidth, windowheight), "Not Chess", sf::Style::Titlebar | sf::Style::Close);
     sf::err().rdbuf(NULL);
@@ -45,13 +45,15 @@ int main()
         }
 
         //Example of mouse position being passes to other child objects of game controller
-        //sf::Vector2i position = sf::Mouse::getPosition(window);
+        sf::Vector2i position = sf::Mouse::getPosition(window);
+        gameCtrl.mouse_position = position;
         //cout << position.x << "-" << position.y << "\n";
-        //gameCtrl.mouse_position = position;
+
 
 
         //Build stuff here !
-        myBoard.buildBoard(&window);
+        //myBoard.buildBoard(&window);
+        gameCtrl.print_game_status(&window);
 
         // end the current frame
         window.display();
