@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClCompile Include="boardStats.cpp" />
     <ClCompile Include="chess.cpp" />
+    <ClCompile Include="gameController.cpp" />
     <ClCompile Include="tableSquares.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="boardStats.h" />
+    <ClInclude Include="gameController.h" />
     <ClInclude Include="tableSquares.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,6 +8,7 @@ boardStats::boardStats(int widthExt, int heightExt){
     width = widthExt;
     height = heightExt;
     seutpBoard();
+    //testObj(widthExt);
 }
 
 //Get current window info
@@ -26,11 +27,8 @@ void boardStats::seutpBoard() {
         for (int j = 0; j < 8; j++) {
             squares[count].posXid = i;
             squares[count].posYid = j;
-
             squares[count].posXdraw = start;
             squares[count].posYdraw = height;
-
-            //cout << "I-" << i << "  J-" << j << "\t" << start << "," << height << "\n";
             start = start + spacing;
             count++;
         }
@@ -50,4 +48,8 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
     for (int i = 0; i < 64; i++) {
         squares[i].drawSquare(window);
     }
+}
+
+void boardStats::testObj(int test) {
+    cout << "WORKS" << test << "\n";
 }

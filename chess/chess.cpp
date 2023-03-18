@@ -1,21 +1,22 @@
 #include "boardStats.h"
+#include "gameController.h"
 #include<iostream>
 #include <SFML/Graphics.hpp>
 
 using namespace std;
 
-const int Windowheight = 1200;
-const int Windowwidth = 1200;
-int spacesN[8][8][2];
+extern int windowheight = 1200;
+extern int windowwidth = 1200;
 
 int main()
 {
 
-    int squareSize = (Windowwidth) / 8;
-    boardStats myBoard(Windowwidth, Windowheight);
+    int squareSize = (windowwidth) / 8;
+    boardStats myBoard(windowwidth, windowheight);
+    gameController gameCtrl(300, 300);
 
     // create the window
-    sf::RenderWindow window(sf::VideoMode(Windowwidth, Windowheight), "Not Chess", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(windowwidth, windowheight), "Not Chess", sf::Style::Titlebar | sf::Style::Close);
     sf::err().rdbuf(NULL);
     // run the program as long as the window is open
     while (window.isOpen())

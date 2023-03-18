@@ -2,6 +2,7 @@
 #include "tableSquares.h"
 #include<iostream>
 #include <SFML/Graphics.hpp>
+
 class boardStats
 {
 public:
@@ -17,6 +18,8 @@ public:
     void seutpBoard();
 
     void buildBoard(sf::RenderWindow* window);
+
+    void testObj(int test);
 
 };
 

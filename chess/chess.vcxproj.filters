@@ -24,12 +24,18 @@
     <ClCompile Include="tableSquares.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gameController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="boardStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tableSquares.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
