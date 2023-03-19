@@ -15,7 +15,7 @@ class gameController
 	*/
 
 	//1v1 local board object
-	localBoard local_BOARD;
+	localBoard * local_BOARD;
 public:
 	//Mouse position
 	int game_status = 0;

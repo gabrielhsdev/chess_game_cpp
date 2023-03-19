@@ -5,6 +5,7 @@
 using namespace std;
 
 boardStats::boardStats(int widthExt, int heightExt){
+    round = 0;
     width = widthExt;
     height = heightExt;
 

@@ -6,6 +6,7 @@
 class boardStats
 {
 public:
+    int round;
     double width;
     double height;
     double squareSize;

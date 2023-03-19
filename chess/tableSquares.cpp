@@ -1,36 +1,40 @@
 #include "tableSquares.h"
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
+    status = 3;
+    sprite.scale(sf::Vector2f(7.f, 7.f));
+}
 
-    int pieces[6] = { 0, 16, 32, 48, 64, 80 };
-    /*
-    int pawn = 0;
-    int knight = 16;
-    int rook = 32;
-    int bishop = 48;
-    int queen = 64;
-    int king = 80;
-    */
-
-    if (!texture.loadFromFile("assets/whitepieces.png", sf::IntRect(pieces[0], 0, 16, 16)))
+void tableSquares::setPiece(sf::RenderWindow* window, int pieceId) {
+    if (!texture.loadFromFile("assets/whitepieces.png", sf::IntRect(pieces[pieceId], 0, 16, 16)))
     {
         cout << "Error loading asset folder\n";
     }
-    //texture.setSmooth(true);
     sprite.setTexture(texture);
-    sprite.scale(sf::Vector2f(8.f, 8.f));
-
+    sprite.setPosition(posXdraw+8, posYdraw+8);
+    window->draw(sprite);
 }
 
-void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
+void tableSquares::drawText(sf::RenderWindow* window) {
+
     sf::Text text;
     sf::Font font;
-
     if (!font.loadFromFile("font.ttf"))
     {
         cerr << ".Error while loading font" << std::endl;
         return;
     }
+    text.setFont(font);
+    text.setCharacterSize(24);
+    text.setFillColor(sf::Color::Black);
+    text.setPosition(posXdraw, posYdraw);
+    string s = to_string(posXid);
+    text.setString(s);
+    window->draw(text);
+
+}
+
+void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
 
     sf::RectangleShape rectangle(sf::Vector2f(150.f, 150.f));
 
@@ -58,18 +62,14 @@ void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
 
     //Draw text id
     if (posYid == 0) {
-        text.setFont(font);
-        text.setCharacterSize(24);
-        text.setFillColor(sf::Color::Black);
-        text.setPosition(posXdraw, posYdraw);
-        string s = to_string(posXid);
-        text.setString(s);
-        //window->draw(text);
+        drawText(window);
     }
     
-    sprite.setPosition(posXdraw, posYdraw);
+    //Draw wathever is inside this square
+    if (status != 0) {
+        setPiece(window, 4);
+    }
 
-    window->draw(sprite);
 }
 
 
