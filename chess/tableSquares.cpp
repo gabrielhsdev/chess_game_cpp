@@ -2,9 +2,17 @@
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
 
+    if (!texture.loadFromFile("assets/pawn1.png"))
+    {
+        cout << "Error loading asset folder\n";
+    }
+    texture.setSmooth(false);
+
+    sprite.setTexture(texture);
+    sprite.scale(sf::Vector2f(4.f, 4.f));
 }
 
-void tableSquares::drawSquare(sf::RenderWindow* window){
+void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
     sf::Text text;
     sf::Font font;
 
@@ -26,6 +34,11 @@ void tableSquares::drawSquare(sf::RenderWindow* window){
         rectangle.setPosition(posXdraw, posYdraw);
     }
 
+    //Change color if selected
+    if (selected == true) {
+        rectangle.setFillColor(sf::Color(111, 111, 111));
+    }
+
     window->draw(rectangle);
 
     //Draw text id
@@ -38,6 +51,11 @@ void tableSquares::drawSquare(sf::RenderWindow* window){
         text.setString(s);
         window->draw(text);
     }
+    window->draw(sprite);
+}
+
+void tableSquares::fillSquare() {
+
 }
 
 

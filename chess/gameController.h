@@ -13,7 +13,6 @@ class gameController
 		1 -> Menu
 		2 -> 1x1
 	*/
-	int test = 123;;
 
 	//1v1 local board object
 	localBoard local_BOARD;

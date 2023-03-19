@@ -8,8 +8,8 @@ class boardStats
 public:
     double width;
     double height;
-    int squareSize;
-    tableSquares squares[64];
+    double squareSize;
+    tableSquares squares[8][8];
     sf::Vector2i mouse_position;
 
     //Constructor
