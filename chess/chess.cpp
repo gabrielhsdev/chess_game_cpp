@@ -5,20 +5,8 @@
 
 using namespace std;
 
-extern int windowheight = 960;
-extern int windowwidth = 960;
-
-//Fix mouse position so last seen is always inside window
-sf::Vector2i fix_position(sf::Vector2i position) {
-    /*
-    * On mouse click example
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-    {
-        cout << "sheeeeeeehs";
-    }
-    */
-    return position;
-}
+extern int windowheight = 1024;
+extern int windowwidth = 1024;
 
 int main()
 {
