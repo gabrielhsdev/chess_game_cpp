@@ -1,4 +1,4 @@
-# chess_game_cpp
+# Chess_game
 
 Project Name: A Chess Game
 
