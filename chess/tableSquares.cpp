@@ -19,6 +19,7 @@ tableSquares::tableSquares() {
     //texture.setSmooth(true);
     sprite.setTexture(texture);
     sprite.scale(sf::Vector2f(8.f, 8.f));
+
 }
 
 void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
@@ -71,8 +72,5 @@ void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
     window->draw(sprite);
 }
 
-void tableSquares::fillSquare() {
-
-}
 
 

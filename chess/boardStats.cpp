@@ -58,7 +58,7 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
                 selected = true;
             }
 
-            cout << mouse_position.x << "," << mouse_position.y << "\n";
+            //cout << mouse_position.x << "," << mouse_position.y << "\n";
             squares[i][j].drawSquare(window, selected);
         }
     }
