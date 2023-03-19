@@ -21,6 +21,10 @@ public:
 
     void buildBoard(sf::RenderWindow* window);
 
+    int  calculatePiece(int x, int y);
+
+    void addRound();
+
     void testObj(int test);
 
 };

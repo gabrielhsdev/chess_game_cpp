@@ -141,12 +141,14 @@
   <ItemGroup>
     <ClCompile Include="boardStats.cpp" />
     <ClCompile Include="chess.cpp" />
+    <ClCompile Include="chessPiece.cpp" />
     <ClCompile Include="gameController.cpp" />
     <ClCompile Include="localBoard.cpp" />
     <ClCompile Include="tableSquares.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="boardStats.h" />
+    <ClInclude Include="chessPiece.h" />
     <ClInclude Include="gameController.h" />
     <ClInclude Include="localBoard.h" />
     <ClInclude Include="tableSquares.h" />

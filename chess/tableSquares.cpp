@@ -1,17 +1,28 @@
 #include "tableSquares.h"
+#include <iostream>
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
-    status = 3;
     sprite.scale(sf::Vector2f(7.f, 7.f));
 }
 
 void tableSquares::setPiece(sf::RenderWindow* window, int pieceId) {
-    if (!texture.loadFromFile("assets/whitepieces.png", sf::IntRect(pieces[pieceId], 0, 16, 16)))
-    {
+    string image = "";
+    if (pieceId == 0)
+        return;
+
+    if (pieceId >= 1 && pieceId <= 6)
+        image = "assets/blackpieces.png";
+    else if (pieceId >= 7 && pieceId < 13) {
+        pieceId = pieceId - 6;
+        image = "assets/whitepieces.png";
+    }
+ 
+    if (!texture.loadFromFile(image, sf::IntRect(pieces[pieceId], 0, 16, 16))) {
         cout << "Error loading asset folder\n";
     }
+
     sprite.setTexture(texture);
-    sprite.setPosition(posXdraw+8, posYdraw+8);
+    sprite.setPosition(posXdraw + 8, posYdraw + 8);
     window->draw(sprite);
 }
 
@@ -66,9 +77,8 @@ void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
     }
     
     //Draw wathever is inside this square
-    if (status != 0) {
-        setPiece(window, 4);
-    }
+    setPiece(window, status);
+    
 
 }
 

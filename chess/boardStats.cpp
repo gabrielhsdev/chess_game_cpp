@@ -16,6 +16,18 @@ boardStats::boardStats(int widthExt, int heightExt){
     testObj(widthExt);
 }
 
+int  boardStats::calculatePiece(int x, int y) {
+    //Set White pawns
+    if (x == 1) {
+        return 1;
+    }
+    //Set Black pawns
+    if (x == 6) {
+        return 7;
+    }
+    return 0;
+}
+
 //Get current window info
 void boardStats::seutpBoard() {
     int count = 0;
@@ -28,6 +40,7 @@ void boardStats::seutpBoard() {
     for (int i = 0; i < 8; i++) {
         int start = widthStartBkp;
         for (int j = 0; j < 8; j++) {
+            squares[i][j].status = calculatePiece(i, j);
             squares[i][j].posXid = i;
             squares[i][j].posYid = j;
             squares[i][j].posXdraw = start;
@@ -59,11 +72,15 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
                 selected = true;
             }
 
-            //cout << mouse_position.x << "," << mouse_position.y << "\n";
+            //Draw each square
             squares[i][j].drawSquare(window, selected);
         }
     }
 
+}
+
+void boardStats::addRound() {
+    round = round + 1;
 }
 
 void boardStats::testObj(int test) {
