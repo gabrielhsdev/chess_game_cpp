@@ -16,37 +16,27 @@ boardStats::boardStats(int widthExt, int heightExt){
     testObj(widthExt);
 }
 
-int  boardStats::calculatePiece(int x, int y) {
-    //Set White pawns
-    if (x == 1) {
-        return 1;
-    }
-    //Set Black pawns
-    if (x == 6) {
-        return 7;
-    }
-    return 0;
-}
-
 //Get current window info
 void boardStats::seutpBoard() {
-    int count = 0;
+
     int spacing = squareSize;
     int height = 0;
-
-
     int widthStartBkp = 0;
 
     for (int i = 0; i < 8; i++) {
         int start = widthStartBkp;
         for (int j = 0; j < 8; j++) {
-            squares[i][j].status = calculatePiece(i, j);
+            //Set piece properties
+            squares[i][j].piece.status = calculatePiece(i, j);
+            squares[i][j].piece.posXdraw = start;
+            squares[i][j].piece.posYdraw = height;
+
+            //Set square properties
             squares[i][j].posXid = i;
             squares[i][j].posYid = j;
             squares[i][j].posXdraw = start;
             squares[i][j].posYdraw = height;
             start = start + spacing;
-            count++;
         }
         height = height + spacing;
     }
@@ -54,33 +44,71 @@ void boardStats::seutpBoard() {
 }
 
 void boardStats::buildBoard(sf::RenderWindow* window) {
-    //We could also check where our mouse is and make the selected square a little bit brighter
-    //window->clear(sf::Color::Blue);//Set background color
+    //window->clear(sf::Color::Blue);
     window->clear();
-
-    //Square size = squareSize
 
     //Draw each tile
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             bool selected = false;
 
-            if (squares[i][j].posXdraw < mouse_position.x
-                && squares[i][j].posXdraw + squareSize > mouse_position.x
-                && squares[i][j].posYdraw < mouse_position.y
-                && squares[i][j].posYdraw + squareSize > mouse_position.y) {
-                selected = true;
-            }
+            //Check if current square is hovered
+            selected = isSquareHover(&squares[i][j]);
 
             //Draw each square
             squares[i][j].drawSquare(window, selected);
+
+            //Call movement handling function, empty on base class
         }
     }
-
 }
 
-void boardStats::addRound() {
-    round = round + 1;
+bool boardStats::isSquareHover(tableSquares * square) {
+    if (square->posXdraw < mouse_position.x
+        && square->posXdraw + squareSize > mouse_position.x
+        && square->posYdraw < mouse_position.y
+        && square->posYdraw + squareSize > mouse_position.y) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+int  boardStats::calculatePiece(int x, int y) {
+    //Set White pawns
+    if (x == 1) {
+        return 1;
+    }
+    if (x == 0) {
+        if (y == 0 || y == 7)
+            return 3;
+        if (y == 1 || y == 6)
+            return 2;
+        if (y == 2 || y == 5)
+            return 4;
+        if (y == 3)
+            return 6;
+        if (y == 4)
+            return 5;
+    }
+    //Set Black pawns
+    if (x == 6) {
+        return 7;
+    }
+    if (x == 7) {
+        if (y == 0 || y == 7)
+            return 9;
+        if (y == 1 || y == 6)
+            return 8;
+        if (y == 2 || y == 5)
+            return 10;
+        if (y == 3)
+            return 12;
+        if (y == 4)
+            return 11;
+    }
+    return 0;
 }
 
 void boardStats::testObj(int test) {

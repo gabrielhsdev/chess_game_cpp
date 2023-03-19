@@ -19,11 +19,14 @@ public:
     //Get current window info
     void seutpBoard();
 
+    bool isSquareHover(tableSquares * square);
+
     void buildBoard(sf::RenderWindow* window);
 
     int  calculatePiece(int x, int y);
 
-    void addRound();
+    //Will override
+    virtual void movementHandle() = 0;
 
     void testObj(int test);
 

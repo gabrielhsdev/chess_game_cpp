@@ -14,9 +14,6 @@ class tableSquares
 	//We use numbers from 1 to 12 for the pieces
 	int pieces[13] = {NULL, 0, 16, 32, 48, 64, 80, 0, 16, 32, 48, 64, 80 };
 
-	sf::Texture texture;
-	sf::Sprite sprite;
-
 public:
 
 	//One piece per tile

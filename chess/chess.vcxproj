@@ -144,6 +144,7 @@
     <ClCompile Include="chessPiece.cpp" />
     <ClCompile Include="gameController.cpp" />
     <ClCompile Include="localBoard.cpp" />
+    <ClCompile Include="movementHandler.cpp" />
     <ClCompile Include="tableSquares.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="chessPiece.h" />
     <ClInclude Include="gameController.h" />
     <ClInclude Include="localBoard.h" />
+    <ClInclude Include="movementHandler.h" />
     <ClInclude Include="tableSquares.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

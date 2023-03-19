@@ -2,28 +2,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
-    sprite.scale(sf::Vector2f(7.f, 7.f));
-}
 
-void tableSquares::setPiece(sf::RenderWindow* window, int pieceId) {
-    string image = "";
-    if (pieceId == 0)
-        return;
-
-    if (pieceId >= 1 && pieceId <= 6)
-        image = "assets/blackpieces.png";
-    else if (pieceId >= 7 && pieceId < 13) {
-        pieceId = pieceId - 6;
-        image = "assets/whitepieces.png";
-    }
- 
-    if (!texture.loadFromFile(image, sf::IntRect(pieces[pieceId], 0, 16, 16))) {
-        cout << "Error loading asset folder\n";
-    }
-
-    sprite.setTexture(texture);
-    sprite.setPosition(posXdraw + 8, posYdraw + 8);
-    window->draw(sprite);
 }
 
 void tableSquares::drawText(sf::RenderWindow* window) {
@@ -77,9 +56,8 @@ void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
     }
     
     //Draw wathever is inside this square
-    setPiece(window, status);
+    piece.drawPiece(window);
     
-
 }
 
 
