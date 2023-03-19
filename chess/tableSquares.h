@@ -19,6 +19,7 @@ class tableSquares
 
 public:
 
+	//One piece per tile
 	chessPiece piece;
 	int status;
 
