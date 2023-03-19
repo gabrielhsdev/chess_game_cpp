@@ -59,6 +59,7 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
             squares[i][j].drawSquare(window, selected);
 
             //Call movement handling function, empty on base class
+            movementHandle();
         }
     }
 }

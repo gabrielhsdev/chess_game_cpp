@@ -10,6 +10,7 @@ public:
 	//Constructor is the same so we start the board all the same ways
 	using boardStats::boardStats;
 	void movementHandle() override {
+		cout << "Hnadling movement\n";
 		return;
 	};
 };
