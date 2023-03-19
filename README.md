@@ -10,12 +10,12 @@ In local 2-player mode, two players can play against each other on the same devi
 The game stores the state of each game, allowing players to pause and resume a game at a later time. The game also features a history viewer, allowing players to review previous moves made in the current game.
 
 Features:
-  Classic game of chess with 2D graphics
-  Object-oriented programming design
-  Local 2-player mode
-  1-player vs AI mode at different levels of difficulty
-  Online multiplayer mode
-  Match log viwer
+-Classic game of chess with 2D graphics
+-Object-oriented programming design
+-Local 2-player mode
+-1-player vs AI mode at different levels of difficulty
+-Online multiplayer mode
+-Match log viwer
   
 The project is built using the SFML graphics library and the code is open-source and available on Github. It's a great example of how to use SFML to create a 2D game, and can be used as a starting point for other game development projects.
 
