@@ -26,7 +26,7 @@ public:
     int  calculatePiece(int x, int y);
 
     //Will override
-    virtual void movementHandle() = 0;
+    virtual void movementHandle(int i, int j, bool selected) = 0;
 
     void testObj(int test);
 

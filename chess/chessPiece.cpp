@@ -9,7 +9,7 @@ chessPiece::chessPiece() {
 }
 
 void chessPiece::drawPiece(sf::RenderWindow* window) {
-    cout << status << "\n";
+    //cout << status << "\n";
     string image = "";
     if (status == 0)
         return;
@@ -18,6 +18,9 @@ void chessPiece::drawPiece(sf::RenderWindow* window) {
         image = "assets/blackpieces.png";
     else if (status >= 7 && status < 13) {
         image = "assets/whitepieces.png";
+    }
+    else {
+        cerr << "WRONG STATUS ON CHESS PIECE" << posXdraw << "," << posYdraw;
     }
 
     if (!texture.loadFromFile(image, sf::IntRect(pieces[status], 0, 16, 16))) {

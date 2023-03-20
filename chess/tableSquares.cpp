@@ -18,7 +18,7 @@ void tableSquares::drawText(sf::RenderWindow* window) {
     text.setCharacterSize(24);
     text.setFillColor(sf::Color::Black);
     text.setPosition(posXdraw, posYdraw);
-    string s = to_string(posXid);
+    string s = to_string(posXid) + "," + to_string(posYid);
     text.setString(s);
     window->draw(text);
 
@@ -51,9 +51,9 @@ void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
     window->draw(rectangle);
 
     //Draw text id
-    if (posYid == 0) {
+    //if (posYid == 0) {
         drawText(window);
-    }
+    //}
     
     //Draw wathever is inside this square
     piece.drawPiece(window);

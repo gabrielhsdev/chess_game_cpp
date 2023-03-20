@@ -16,7 +16,7 @@ boardStats::boardStats(int widthExt, int heightExt){
     testObj(widthExt);
 }
 
-//Get current window info
+//It runs only once, setup pieces
 void boardStats::seutpBoard() {
 
     int spacing = squareSize;
@@ -30,6 +30,8 @@ void boardStats::seutpBoard() {
             squares[i][j].piece.status = calculatePiece(i, j);
             squares[i][j].piece.posXdraw = start;
             squares[i][j].piece.posYdraw = height;
+            squares[i][j].piece.posX = i;
+            squares[i][j].piece.posY = j;
 
             //Set square properties
             squares[i][j].posXid = i;
@@ -59,7 +61,7 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
             squares[i][j].drawSquare(window, selected);
 
             //Call movement handling function, empty on base class
-            movementHandle();
+            movementHandle(i, j, selected);
         }
     }
 }

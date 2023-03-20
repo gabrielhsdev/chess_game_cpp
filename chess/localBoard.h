@@ -5,12 +5,10 @@
 #include <SFML/Graphics.hpp>
 
 class localBoard : public boardStats {
-	movementHandler* movement;
 public:
+	movementHandler movement;
 	//Constructor is the same so we start the board all the same ways
 	using boardStats::boardStats;
-	void movementHandle() override {
-		cout << "Hnadling movement\n";
-		return;
-	};
+	void movementHandle(int i, int j, bool selected) override;
+
 };
