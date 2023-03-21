@@ -79,7 +79,7 @@ bool boardStats::isSquareHover(tableSquares * square) {
 }
 
 int  boardStats::calculatePiece(int x, int y) {
-    //Set White pawns
+    //Set White pieces
     if (x == 1) {
         return 1;
     }
@@ -95,7 +95,7 @@ int  boardStats::calculatePiece(int x, int y) {
         if (y == 4)
             return 5;
     }
-    //Set Black pawns
+    //Set Black pieces
     if (x == 6) {
         return 7;
     }

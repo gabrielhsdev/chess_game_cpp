@@ -35,15 +35,20 @@ void chessPiece::drawPiece(sf::RenderWindow* window) {
 
 //pawn = 0; knight = 16; rook = 32; bishop = 48; queen = 64; king = 80;
 string chessPiece::getPieceStatus(string stat) {
-    if (stat == "name") {
+
+    if (status == 0) {
+        return "empty";
+    } else if (stat == "name") {
+
         if (status == 1 || 7)
             return "pawn";
         if (status == 2 || 8)
             return "knight";
         if (status == 3 || 9)
             return "rook";
-        if(status == 4 || 10)
+        if (status == 4 || 10) {
             return "bishop";
+        }
         if(status == 5 || 11)
             return "queen";
         if(status == 6 || 12)
@@ -51,9 +56,9 @@ string chessPiece::getPieceStatus(string stat) {
         else {
             cerr << "WRONG PIECE STATUS ON GET";
         } 
-    }
 
-    if (stat == "color") {
+    }else if (stat == "color") {
+
         if (status >= 1 && status <= 6) {
             return "black";
         } else if (status >= 7 && status <= 12) {
@@ -62,14 +67,17 @@ string chessPiece::getPieceStatus(string stat) {
         else {
             cerr << "WRONG PIECE STATUS ON GAT ERR 2";
         }
-    }
 
-    if (stat == "isalive") {
+    } else if (stat == "isalive") {
+
         if (status == 0)
             return "dead";
         else if (status >= 1 && status <= 12)
             return "alive";
         else
             cerr << "WRONG PIECE STATUS ON GAT ERR 2";
+
+    } else {
+        cerr << "WRONG STATUS ASK FOR CON GET PIECE STATUS";
     }
 }

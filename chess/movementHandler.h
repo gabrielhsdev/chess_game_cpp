@@ -12,9 +12,7 @@ class movementHandler
 		bool possibleMoves[8][8];
 		movementHandler();
 		void resetMovement();
-		string getPieceName(chessPiece* piece);
 		void setPossibleMoves(chessPiece* piece);
-
 		void pawnMoves(chessPiece* piece);
 
 };
