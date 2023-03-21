@@ -23,5 +23,6 @@ public:
 
 	chessPiece();
 	void drawPiece(sf::RenderWindow* window);
+	string getPieceStatus(string stat);
 };
 

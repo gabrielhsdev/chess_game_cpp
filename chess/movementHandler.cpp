@@ -54,10 +54,24 @@ void movementHandler::resetMovement() {
 }
 
 void movementHandler::setPossibleMoves(chessPiece* piece) {
-	//resetMovement();
+	resetMovement();
 	string str = getPieceName(piece);
 	int x = 0, y = 0;
 	if (str == "pawn_white") {
+		x = piece->posX - 1;
+		y = piece->posY;
+		if (x > 0 && x < 8 && y > 0 && y < 8) {
+			possibleMoves[x][y] = true;
+		}
+	}
+}
+
+void movementHandler::pawnMoves(chessPiece* piece) {
+	resetMovement();
+	string str = getPieceName(piece);
+	int x = 0, y = 0;
+	//Black
+	if (piece->status == 1) {
 		x = piece->posX - 1;
 		y = piece->posY;
 		if (x > 0 && x < 8 && y > 0 && y < 8) {

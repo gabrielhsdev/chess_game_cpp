@@ -8,10 +8,14 @@ using namespace std;
 class movementHandler
 {
 	public:
+		//This is always changing
 		bool possibleMoves[8][8];
 		movementHandler();
 		void resetMovement();
 		string getPieceName(chessPiece* piece);
 		void setPossibleMoves(chessPiece* piece);
+
+		void pawnMoves(chessPiece* piece);
+
 };
 
