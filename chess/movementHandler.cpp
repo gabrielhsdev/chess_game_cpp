@@ -5,18 +5,32 @@ movementHandler::movementHandler() {
 }
 
 void movementHandler::resetMovement(bool(&possibleMoves)[8][8]) {
-	for (int i = 0; i < 8-1; i++) {
-		for (int j = 0; j < 8 - 1; j++) {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
 			possibleMoves[i][j] = false;
 		}
 	}
 }
 
+bool  movementHandler::isMovementPossible(bool(&possibleMoves)[8][8]) {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (possibleMoves[i][j] == true) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 void movementHandler::setPossibleMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]) {
-	resetMovement(possibleMoves);
 	string str = piece->getPieceStatus("name");
-	if (str == "pawn") {
-		pawnMoves(piece, possibleMoves, tableSquares);
+	string color = piece->getPieceStatus("color");
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		cout << "\nClicked on: " << color << " " << str;
+		if (str == "pawn") {
+			pawnMoves(piece, possibleMoves, tableSquares);
+		}
 	}
 }
 
@@ -53,7 +67,4 @@ void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8], t
 		}
 
 	}
-
-
-
 }
