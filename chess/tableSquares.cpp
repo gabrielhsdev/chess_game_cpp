@@ -2,7 +2,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
-
+    return;
 }
 
 void tableSquares::drawText(sf::RenderWindow* window) {

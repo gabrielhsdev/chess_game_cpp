@@ -1,2 +1,4 @@
-﻿  movementHandler.cpp
+﻿  localBoard.cpp
+  movementHandler.cpp
+  Generating Code...
   chess.vcxproj -> C:\Users\Gabriel\Desktop\cpp_pro\chess\x64\Debug\chess.exe

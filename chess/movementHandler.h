@@ -8,12 +8,9 @@ using namespace std;
 class movementHandler
 {
 	public:
-		//This is always changing
-		bool possibleMoves[8][8];
 		movementHandler();
-		void resetMovement();
-		void setPossibleMoves(chessPiece* piece);
-		void pawnMoves(chessPiece* piece);
-
+		void resetMovement(bool(&possibleMoves)[8][8]);
+		void setPossibleMoves(chessPiece* piece, bool(&possibleMoves)[8][8]);
+		void pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8]);
 };
 

@@ -12,6 +12,12 @@ boardStats::boardStats(int widthExt, int heightExt){
     int spacing = width / 8;
     squareSize = spacing;
 
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            possibleMoves[i][j] = false;
+        }
+    }
+
     seutpBoard();
     testObj(widthExt);
 }
@@ -46,7 +52,7 @@ void boardStats::seutpBoard() {
 }
 
 void boardStats::buildBoard(sf::RenderWindow* window) {
-    //window->clear(sf::Color::Blue);
+    //Runs every frame
     window->clear();
 
     //Draw each tile
