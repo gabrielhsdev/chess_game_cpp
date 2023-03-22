@@ -12,15 +12,15 @@ void movementHandler::resetMovement(bool(&possibleMoves)[8][8]) {
 	}
 }
 
-void movementHandler::setPossibleMoves(chessPiece* piece, bool(&possibleMoves)[8][8]) {
+void movementHandler::setPossibleMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]) {
 	resetMovement(possibleMoves);
 	string str = piece->getPieceStatus("name");
 	if (str == "pawn") {
-		pawnMoves(piece, possibleMoves);
+		pawnMoves(piece, possibleMoves, tableSquares);
 	}
 }
 
-void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8]) {
+void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]) {
 	resetMovement(possibleMoves);
 	string str = piece->getPieceStatus("color");
 	int x = 0, y = 0;
@@ -41,7 +41,12 @@ void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8]) {
 
 	//Check for possible attack moves on left and right
 	if ( (y+1)>=0 && (y-1)<= 7) {
-
+		if (tableSquares[x][y].piece.status != 0) {
+			cout << "can attack 1";
+		}
+		else {
+			cout << "cant attack 1";
+		}
 	}
 
 }

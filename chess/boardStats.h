@@ -14,8 +14,8 @@ public:
 
     //Utils
     bool possibleMoves[8][8];
-
     tableSquares squares[8][8];
+
     sf::Vector2i mouse_position;
 
     //Constructor
