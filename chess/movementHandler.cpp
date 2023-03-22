@@ -25,12 +25,16 @@ void movementHandler::pawnMoves(chessPiece* piece) {
 	string str = piece->getPieceStatus("color");
 	int x = 0, y = 0;
 	//Black
-	if (piece->getPieceStatus("color") == "black") {
-		x = piece->posX - 1;
-		y = piece->posY;
-		if (x > 0 && x < 8 && y > 0 && y < 8) {
-			possibleMoves[x][y] = true;
-			cout << "can move to" << x << y;
-		}
+	int add = 1;
+
+	if (piece->getPieceStatus("color") == "white") {
+		add = -1;
 	}
+	x = piece->posX + add;
+	y = piece->posY;
+	if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+		possibleMoves[x][y] = true;
+		cout << "\ncan move to" << x << "," << y;
+	}
+
 }
