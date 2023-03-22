@@ -1,9 +1,2 @@
-﻿  boardStats.cpp
-C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\boardStats.cpp(12,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\boardStats.cpp(28,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  chess.cpp
-  gameController.cpp
-  localBoard.cpp
-  movementHandler.cpp
-  Generating Code...
+﻿  movementHandler.cpp
   chess.vcxproj -> C:\Users\Gabriel\Desktop\cpp_pro\chess\x64\Debug\chess.exe

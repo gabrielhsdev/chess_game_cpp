@@ -34,19 +34,26 @@ void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8], t
 	x = piece->posX + add;
 	y = piece->posY;
 
-	if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+	//Cancel function if we cannot move foward, pawn becomes queen ? (create pawn_to_queen function)
+	if (x > 7 || x < 0)
+		return;
+
+	//Check if we can move to the next square
+	if (x >= 0 && x <= 7 && tableSquares[x][y].piece.status == 0) {
 		possibleMoves[x][y] = true;
-		cout << "\ncan move to" << x << "," << y;
 	}
 
 	//Check for possible attack moves on left and right
-	if ( (y+1)>=0 && (y-1)<= 7) {
-		if (tableSquares[x][y].piece.status != 0) {
-			cout << "can attack 1";
+	for (int add = -1; add <= 1; add += 2) {
+		int y_cord = y + add;
+		if (y_cord >= 0 && y_cord <= 7) {
+			if (tableSquares[x][y_cord].piece.status != 0) {
+				possibleMoves[x][y_cord] = true;
+			}
 		}
-		else {
-			cout << "cant attack 1";
-		}
+
 	}
+
+
 
 }
