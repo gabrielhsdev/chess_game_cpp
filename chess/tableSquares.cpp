@@ -24,26 +24,18 @@ void tableSquares::drawText(sf::RenderWindow* window) {
 
 }
 
-void tableSquares::drawSquare(sf::RenderWindow* window, bool selected){
-
+void tableSquares::drawSquare(sf::RenderWindow* window){
     sf::RectangleShape rectangle(sf::Vector2f(150.f, 150.f));
 
     //Selected overrides everything
-    if (selected == true) {
-        rectangle.setFillColor(color_selected);
-    }
-    else {
-        rectangle.setFillColor(color_active);
-    }
+    rectangle.setFillColor(color_active);
+    
 
     rectangle.setPosition(posXdraw, posYdraw);
     window->draw(rectangle);
 
-    //Draw text id
-    //if (posYid == 0) {
-        drawText(window);
-    //}
-    
+    drawText(window);
+
     //Draw wathever is inside this square
     piece.drawPiece(window);
 }

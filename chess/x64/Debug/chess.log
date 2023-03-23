@@ -1,8 +1,6 @@
-﻿  movementHandler.cpp
-  tableSquares.cpp
-C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(20,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(20,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(39,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\tableSquares.cpp(39,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  chess.cpp
+  gameController.cpp
+  localBoard.cpp
+  movementHandler.cpp
   Generating Code...
   chess.vcxproj -> C:\Users\Gabriel\Desktop\cpp_pro\chess\x64\Debug\chess.exe

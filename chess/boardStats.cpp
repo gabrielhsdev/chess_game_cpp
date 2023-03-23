@@ -77,7 +77,7 @@ void boardStats::buildBoard(sf::RenderWindow* window) {
             selected = isSquareHover(&squares[i][j]);
 
             //Draw each square
-            squares[i][j].drawSquare(window, selected);
+            squares[i][j].drawSquare(window);
 
             //Call movement handling function, empty on base class
             movementHandle(i, j, selected);
