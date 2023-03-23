@@ -1,9 +1,5 @@
 #include "movementHandler.h"
 
-movementHandler::movementHandler() {
-
-}
-
 void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8]){
 
 	piece = piecePtr;
@@ -11,7 +7,7 @@ void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			possibleMoves[i][j] = &possibleMovesPtr[i][j];
-			tableSquare[i][j] = &tableSquarePtr[8][8];
+			tableSquare[i][j] = &tableSquarePtr[i][j];
 		}
 	}
 
@@ -45,9 +41,16 @@ void movementHandler::setPossibleMoves() {
 	string str = piece->getPieceStatus("name");
 	string color = piece->getPieceStatus("color");
 
-	if (str == "pawn") {
-		pawnMoves();
-		cout << "calculate pawn\n";
+	//Mouse click logic here
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clicked == false) {
+		clicked = true;
+		unpaintActions();
+		if (str == "pawn") {
+			pawnMoves();
+			paintActions();
+		}
+	} else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		clicked = false;
 	}
 }
 
@@ -82,6 +85,24 @@ void movementHandler::pawnMoves() {
 			if (tableSquare[x][y_cord]->piece.status != 0) {
 				*possibleMoves[x][y_cord] = true;
 			}
+		}
+	}
+}
+
+void movementHandler::paintActions() {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (*possibleMoves[i][j] == true) {
+				tableSquare[i][j]->color_active = tableSquare[i][j]->color_action;
+			}
+		}
+	}
+}
+
+void movementHandler::unpaintActions() {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			tableSquare[i][j]->color_active = tableSquare[i][j]->color_default;
 		}
 	}
 }

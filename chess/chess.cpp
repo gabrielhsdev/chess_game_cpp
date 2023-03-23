@@ -15,7 +15,6 @@ int main()
     gameCtrl.game_status = 2;
     // create the window
     sf::RenderWindow window(sf::VideoMode(windowwidth, windowheight), "Not Chess", sf::Style::Titlebar | sf::Style::Close);
-
     sf::err().rdbuf(NULL);
     // run the program as long as the window is open
     while (window.isOpen())
@@ -26,6 +25,7 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
+            window.setKeyRepeatEnabled(false);
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
