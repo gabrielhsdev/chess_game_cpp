@@ -9,10 +9,14 @@ using namespace std;
 class movementHandler
 {
 	public:
+		bool clicked = false;
+		chessPiece * lastSelected = nullptr;
 		movementHandler();
 		void resetMovement(bool(&possibleMoves)[8][8]);
 		void setPossibleMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares (&tableSquares)[8][8]);
 		void pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]);
 		bool isMovementPossible(bool(&possibleMoves)[8][8]);
+		void setMovementColors(bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]);
+		void resetColors(tableSquares(&tableSquares)[8][8]);
 };
 

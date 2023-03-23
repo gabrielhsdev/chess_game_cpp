@@ -26,16 +26,31 @@ bool  movementHandler::isMovementPossible(bool(&possibleMoves)[8][8]) {
 void movementHandler::setPossibleMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]) {
 	string str = piece->getPieceStatus("name");
 	string color = piece->getPieceStatus("color");
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+	
+	//One click function
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clicked == false) {
+		clicked = true;
+		lastSelected = nullptr;
+	} else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clicked == true) {
+		clicked = false;
+		lastSelected = nullptr;
+	}
+	if (clicked == true) {
 		cout << "\nClicked on: " << color << " " << str;
 		if (str == "pawn") {
 			pawnMoves(piece, possibleMoves, tableSquares);
+			setMovementColors(possibleMoves, tableSquares);
 		}
+		lastSelected = piece;
+	}
+	else {
+		resetColors(tableSquares);
 	}
 }
 
 void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]) {
 	resetMovement(possibleMoves);
+
 	string str = piece->getPieceStatus("color");
 	int x = 0, y = 0;
 	//Black
@@ -66,5 +81,25 @@ void movementHandler::pawnMoves(chessPiece* piece, bool(&possibleMoves)[8][8], t
 			}
 		}
 
+	}
+}
+
+void movementHandler::setMovementColors(bool(&possibleMoves)[8][8], tableSquares(&tableSquares)[8][8]) 
+{
+	resetColors(tableSquares);
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (possibleMoves[i][j] == true) {
+				tableSquares[i][j].color_active = tableSquares[i][j].color_action;
+			}
+		}
+	}
+}
+
+void movementHandler::resetColors(tableSquares(&tableSquares)[8][8]){
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			tableSquares[i][j].color_active = tableSquares[i][j].color_default;
+		}
 	}
 }

@@ -45,6 +45,19 @@ void boardStats::seutpBoard() {
             squares[i][j].posXdraw = start;
             squares[i][j].posYdraw = height;
             start = start + spacing;
+
+            //Set square colors
+            squares[i][j].color_action = sf::Color(204, 141, 133);
+            if ((i+j)%2 == 0) {
+                squares[i][j].color_default = sf::Color(118, 150, 85);
+                squares[i][j].color_selected = sf::Color(102, 125, 77);
+            }
+            else 
+            {
+                squares[i][j].color_default =  sf::Color(238, 238, 210);
+                squares[i][j].color_selected = sf::Color(194, 194, 169);
+            }
+            squares[i][j].color_active = squares[i][j].color_default;
         }
         height = height + spacing;
     }
