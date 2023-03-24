@@ -2,7 +2,10 @@
 
 void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8], int * round){
 
+	currentRound = round;
 	piece = piecePtr;
+	selected_X = piece->posX;
+	selected_Y = piece->posY;
 
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
@@ -11,16 +14,12 @@ void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][
 		}
 	}
 
-	selected_X = piece->posX;
-	selected_Y = piece->posY;
-
-	currentRound = round;
-
 	setPossibleMoves();
 }
 
 void movementHandler::setPossibleMoves() {
 
+	//Color round
 	string roundOf = "black";
 	if (*currentRound % 2 == 0)
 		roundOf = "white";
@@ -53,6 +52,7 @@ void movementHandler::setPossibleMoves() {
 }
 
 void movementHandler::movePiece() {
+
 	if (*possibleMoves[selected_X][selected_Y] == true && selectedPiece != nullptr) {
 		tableSquare[selected_X][selected_Y]->piece.status = selectedPiece->status;
 		selectedPiece->status = 0;
@@ -62,6 +62,7 @@ void movementHandler::movePiece() {
 	}
 	resetMovement();
 	unpaintActions();
+
 }
 
 void movementHandler::pawnMoves() {
@@ -71,7 +72,6 @@ void movementHandler::pawnMoves() {
 
 	//Black
 	int add = 1;
-
 	if (piece->getPieceStatus("color") == "white") {
 		add = -1;
 	}

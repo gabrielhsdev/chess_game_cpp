@@ -4,6 +4,7 @@
 gameController::gameController(int windowWidth, int windowHeight)
 {
     // Constructor implementation, set status to be the menu ? 
+	return;
 }
 
 //This will be running each frame

@@ -12,7 +12,7 @@ public:
 
 	//One piece per tile
 	chessPiece piece;
-	int status;
+	int status = 0;
 
 	int posXdraw = 0;
 	int posYdraw = 0;
