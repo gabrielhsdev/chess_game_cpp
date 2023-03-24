@@ -20,9 +20,10 @@ class movementHandler
 		tableSquares* tableSquare[8][8];
 
 		void mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8]);
+		void pawnMoves();
+		void movePiece();
 		void resetMovement();
 		void setPossibleMoves();
-		void pawnMoves();
 		bool isMovementPossible();
 		void paintActions();
 		void unpaintActions();

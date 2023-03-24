@@ -17,25 +17,6 @@ void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][
 	setPossibleMoves();
 }
 
-void movementHandler::resetMovement() {
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 8; j++) {
-			*possibleMoves[i][j] = false;
-		}
-	}
-}
-
-bool  movementHandler::isMovementPossible() {
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 8; j++) {
-			if (*possibleMoves[i][j] == true) {
-				return true;
-			}
-		}
-	}
-	return false;
-}
-
 void movementHandler::setPossibleMoves() {
 
 	string str = piece->getPieceStatus("name");
@@ -44,14 +25,36 @@ void movementHandler::setPossibleMoves() {
 	//Mouse click logic here
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clicked == false) {
 		clicked = true;
-		unpaintActions();
-		if (str == "pawn") {
-			pawnMoves();
-			paintActions();
+		//If piece is clicked
+		if (piece->status != 0) {
+			selectedPiece = piece;
+			unpaintActions();
+			if (str == "pawn") {
+				pawnMoves();
+				paintActions();
+			}
 		}
-	} else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		//If tile is clicked AFTER piece is selected
+		else if (isMovementPossible()) {
+			movePiece();
+		}
+	}
+	else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		clicked = false;
 	}
+
+}
+
+void movementHandler::movePiece() {
+	if (*possibleMoves[selected_X][selected_Y] == true && selectedPiece != nullptr) {
+		tableSquare[selected_X][selected_Y]->piece.status = selectedPiece->status;
+		selectedPiece->status = 0;
+	}
+	else {
+		selectedPiece = nullptr;
+	}
+	resetMovement();
+	unpaintActions();
 }
 
 void movementHandler::pawnMoves() {
@@ -82,11 +85,30 @@ void movementHandler::pawnMoves() {
 	for (int add = -1; add <= 1; add += 2) {
 		int y_cord = y + add;
 		if (y_cord >= 0 && y_cord <= 7) {
-			if (tableSquare[x][y_cord]->piece.status != 0) {
+			if (tableSquare[x][y_cord]->piece.status != 0 && tableSquare[x][y_cord]->piece.getPieceStatus("color") != str) {
 				*possibleMoves[x][y_cord] = true;
 			}
 		}
 	}
+}
+
+void movementHandler::resetMovement() {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			*possibleMoves[i][j] = false;
+		}
+	}
+}
+
+bool  movementHandler::isMovementPossible() {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (*possibleMoves[i][j] == true) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 void movementHandler::paintActions() {
