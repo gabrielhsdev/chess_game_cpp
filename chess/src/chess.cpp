@@ -1,5 +1,6 @@
-#include "boardStats.h"
-#include "gameController.h"
+#include "../include/gameController/gameController.h";
+#include "../include/boardStats/boardStats.h";
+
 #include <windows.h>
 #include<iostream>
 #include <SFML/Graphics.hpp>

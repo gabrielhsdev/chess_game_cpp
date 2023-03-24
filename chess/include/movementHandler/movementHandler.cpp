@@ -1,4 +1,4 @@
-#include "movementHandler.h"
+#include "../movementHandler/movementHandler.h"
 
 void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8], int * round){
 

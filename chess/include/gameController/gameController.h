@@ -1,6 +1,6 @@
 #pragma once
-#include "boardStats.h"
-#include "localBoard.h"
+#include "../boardStats/boardStats.h"
+#include "../localBoard/localBoard.h"
 #include<iostream>
 #include <SFML/Graphics.hpp>
 

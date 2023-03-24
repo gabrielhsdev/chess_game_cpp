@@ -1,4 +1,4 @@
-#include "tableSquares.h"
+#include "../tableSquares/tableSquares.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {

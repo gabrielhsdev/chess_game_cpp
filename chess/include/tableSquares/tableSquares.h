@@ -1,7 +1,6 @@
 #pragma once
-#include<iostream>
-#include "tableSquares.h"
-#include "chessPiece.h"
+#include "../tableSquares/tableSquares.h"
+#include "../chessPiece/chessPiece.h"
 #include <SFML/Graphics.hpp>
 
 using namespace std;

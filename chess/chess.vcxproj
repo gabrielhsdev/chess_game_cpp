@@ -139,21 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="boardStats.cpp" />
-    <ClCompile Include="chess.cpp" />
-    <ClCompile Include="chessPiece.cpp" />
-    <ClCompile Include="gameController.cpp" />
-    <ClCompile Include="localBoard.cpp" />
-    <ClCompile Include="movementHandler.cpp" />
-    <ClCompile Include="tableSquares.cpp" />
+    <ClCompile Include="include\gameController\gameController.cpp" />
+    <ClCompile Include="src\chess.cpp" />
+    <ClCompile Include="include\chessPiece\chessPiece.cpp" />
+    <ClCompile Include="include\boardStats\boardStats.cpp" />
+    <ClCompile Include="include\localBoard\localBoard.cpp" />
+    <ClCompile Include="include\movementHandler\movementHandler.cpp" />
+    <ClCompile Include="include\tableSquares\tableSquares.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boardStats.h" />
-    <ClInclude Include="chessPiece.h" />
-    <ClInclude Include="gameController.h" />
-    <ClInclude Include="localBoard.h" />
-    <ClInclude Include="movementHandler.h" />
-    <ClInclude Include="tableSquares.h" />
+    <ClInclude Include="include\boardStats\boardStats.h" />
+    <ClInclude Include="include\chessPiece\chessPiece.h" />
+    <ClInclude Include="include\gameController\gameController.h" />
+    <ClInclude Include="include\localBoard\localBoard.h" />
+    <ClInclude Include="include\movementHandler\movementHandler.h" />
+    <ClInclude Include="include\tableSquares\tableSquares.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

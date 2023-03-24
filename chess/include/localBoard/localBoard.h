@@ -1,6 +1,6 @@
 #pragma once
-#include "boardStats.h"
-#include "movementHandler.h"
+#include "../boardStats/boardStats.h"
+#include "../movementHandler/movementHandler.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 

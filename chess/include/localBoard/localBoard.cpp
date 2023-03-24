@@ -1,5 +1,5 @@
-#include "localBoard.h"
-#include "boardStats.h"
+#include "../localBoard/localBoard.h"
+#include "../boardStats/boardStats.h"
 
 void localBoard::movementHandle(int i, int j, bool selected) {
 	//Check if a tile is selected

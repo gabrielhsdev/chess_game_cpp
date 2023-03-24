@@ -15,45 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chess.cpp">
+    <ClCompile Include="include\gameController\gameController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="boardStats.cpp">
+    <ClCompile Include="src\chess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tableSquares.cpp">
+    <ClCompile Include="include\tableSquares\tableSquares.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameController.cpp">
+    <ClCompile Include="include\boardStats\boardStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="localBoard.cpp">
+    <ClCompile Include="include\localBoard\localBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="chessPiece.cpp">
+    <ClCompile Include="include\chessPiece\chessPiece.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="movementHandler.cpp">
+    <ClCompile Include="include\movementHandler\movementHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boardStats.h">
+    <ClInclude Include="include\boardStats\boardStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tableSquares.h">
+    <ClInclude Include="include\tableSquares\tableSquares.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameController.h">
+    <ClInclude Include="include\gameController\gameController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="localBoard.h">
+    <ClInclude Include="include\localBoard\localBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="chessPiece.h">
+    <ClInclude Include="include\chessPiece\chessPiece.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="movementHandler.h">
+    <ClInclude Include="include\movementHandler\movementHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

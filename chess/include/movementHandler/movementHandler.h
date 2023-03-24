@@ -1,6 +1,6 @@
 #pragma once
-#include "chessPiece.h"
-#include "tableSquares.h"
+#include "../chessPiece/chessPiece.h"
+#include "../tableSquares/tableSquares.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 

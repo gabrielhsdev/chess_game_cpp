@@ -1,4 +1,4 @@
-#include "gameController.h"
+#include "../gameController/gameController.h"
 #include <SFML/Graphics.hpp>
 
 gameController::gameController(int windowWidth, int windowHeight)
