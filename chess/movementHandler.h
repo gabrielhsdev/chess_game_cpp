@@ -12,6 +12,7 @@ class movementHandler
 
 		int selected_X;
 		int selected_Y;
+		int * currentRound;
 		bool clicked = false;
 
 		bool* possibleMoves[8][8];
@@ -19,7 +20,7 @@ class movementHandler
 		chessPiece* selectedPiece = nullptr;
 		tableSquares* tableSquare[8][8];
 
-		void mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8]);
+		void mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8], int * round);
 		void pawnMoves();
 		void movePiece();
 		void resetMovement();

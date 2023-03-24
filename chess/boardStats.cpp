@@ -5,6 +5,7 @@
 using namespace std;
 
 boardStats::boardStats(int widthExt, int heightExt){
+    winner = 0;
     round = 0;
     width = widthExt;
     height = heightExt;
@@ -17,7 +18,6 @@ boardStats::boardStats(int widthExt, int heightExt){
             possibleMoves[i][j] = false;
         }
     }
-
     seutpBoard();
     testObj(widthExt);
 }

@@ -8,6 +8,7 @@ class boardStats
 public:
 
     int round;
+    int winner;
     double width;
     double height;
     double squareSize;

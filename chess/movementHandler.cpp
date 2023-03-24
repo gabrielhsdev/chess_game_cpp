@@ -1,6 +1,6 @@
 #include "movementHandler.h"
 
-void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8]){
+void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8], int * round){
 
 	piece = piecePtr;
 
@@ -14,10 +14,16 @@ void movementHandler::mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][
 	selected_X = piece->posX;
 	selected_Y = piece->posY;
 
+	currentRound = round;
+
 	setPossibleMoves();
 }
 
 void movementHandler::setPossibleMoves() {
+
+	string roundOf = "black";
+	if (*currentRound % 2 == 0)
+		roundOf = "white";
 
 	string str = piece->getPieceStatus("name");
 	string color = piece->getPieceStatus("color");
@@ -26,7 +32,7 @@ void movementHandler::setPossibleMoves() {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clicked == false) {
 		clicked = true;
 		//If piece is clicked
-		if (piece->status != 0) {
+		if (piece->status != 0 && roundOf == piece->getPieceStatus("color")) {
 			selectedPiece = piece;
 			unpaintActions();
 			if (str == "pawn") {
@@ -35,14 +41,15 @@ void movementHandler::setPossibleMoves() {
 			}
 		}
 		//If tile is clicked AFTER piece is selected
-		else if (isMovementPossible()) {
+		else if (isMovementPossible() && roundOf == selectedPiece->getPieceStatus("color") && *possibleMoves[selected_X][selected_Y] == true) {
+			cout << piece->getPieceStatus("name");
 			movePiece();
+			*currentRound = *currentRound + 1;
 		}
 	}
 	else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		clicked = false;
 	}
-
 }
 
 void movementHandler::movePiece() {

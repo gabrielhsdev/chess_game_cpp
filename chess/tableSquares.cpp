@@ -30,7 +30,6 @@ void tableSquares::drawSquare(sf::RenderWindow* window){
     //Selected overrides everything
     rectangle.setFillColor(color_active);
     
-
     rectangle.setPosition(posXdraw, posYdraw);
     window->draw(rectangle);
 
