@@ -1,6 +1,5 @@
-﻿  chess.cpp
-  gameController.cpp
-  localBoard.cpp
-  movementHandler.cpp
-  Generating Code...
+﻿  chessPiece.cpp
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\chessPiece.cpp(35,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\chessPiece.cpp(35,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\chessPiece.cpp(86): warning C4715: 'chessPiece::getPieceStatus': not all control paths return a value
   chess.vcxproj -> C:\Users\Gabriel\Desktop\cpp_pro\chess\x64\Debug\chess.exe

@@ -12,6 +12,10 @@ class chessPiece
 	int pieces[13] = { NULL, 0, 16, 32, 48, 64, 80, 0, 16, 32, 48, 64, 80 };
 	
 	sf::Texture texture;
+
+	sf::Texture texture_w;
+	sf::Texture texture_b;
+
 	sf::Sprite sprite;
 
 public:

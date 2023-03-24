@@ -6,45 +6,33 @@ chessPiece::chessPiece() {
     posXdraw = 0;
     posXdraw = 0;
     sprite.scale(sf::Vector2f(7.f, 7.f));
+
+    //Load both textures, cant be in the same if statement, error occurs
+    if (!texture_b.loadFromFile("assets/blackpieces.png")){
+        cout << "Error loading asset folder\n";
+    }
+    if (!texture_w.loadFromFile("assets/whitepieces.png")) {
+        cout << "Error loading asset folder\n";
+    }
 }
 
 void chessPiece::drawPiece(sf::RenderWindow* window) {
     //cout << status << "\n";
     string image = "";
-    if (status == 0)
+    if (status == 0 || status > 12) {
+        if(status > 12)
+            cout << "INVALID STATUS FOR PIECE, RETURNED 0 -> " << status;
         return;
+    }
 
-    //Image loading and resizing causing too much trouble, fix it later
-    if (status == -1) {
-        image = "assets/pawn.png";
-        if (!texture.loadFromFile(image)) {
-            cout << "Error loading asset folder\n";
-        }
-        sprite.setTexture(texture);
-        sprite.setScale(0.1f, 0.1f);
-        sprite.setPosition(posXdraw, posYdraw);
-    }
-    else if (status >= 1 && status <= 6) {
-        image = "assets/blackpieces.png";
-        if (!texture.loadFromFile(image, sf::IntRect(pieces[status], 0, 16, 16))) {
-            cout << "Error loading asset folder\n";
-        }
-        sprite.setTexture(texture);
-        sprite.setPosition(posXdraw + 8, posYdraw + 8);
-    }
-    else if (status >= 7 && status < 13) {
-        image = "assets/whitepieces.png";
-        if (!texture.loadFromFile(image, sf::IntRect(pieces[status], 0, 16, 16))) {
-            cout << "Error loading asset folder\n";
-        }
-        sprite.setTexture(texture);
-        sprite.setPosition(posXdraw + 8, posYdraw + 8);
-    }
+    if (status >= 1 && status <= 6) 
+        texture = texture_b;
     else
-    {
-        cerr << "WRONG STATUS ON CHESS PIECE" << posXdraw << "," << posYdraw;
-    }
+        texture = texture_w;
 
+    sprite.setTexture(texture);
+    sprite.setTextureRect(sf::IntRect(pieces[status], 0, 16, 16));
+    sprite.setPosition(posXdraw + 8, posYdraw + 8);
     window->draw(sprite);
 }
 
