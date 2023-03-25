@@ -1,15 +1,7 @@
 # Chess_game
 
-Project Name: A Chess Game
+Project Name: CHESS
 
-Description: A Chess Game is a classic game of chess built using the SFML library and C++ programming language. It features a 2D chessboard with pieces that can be moved by players.
+CHESS is a two-player game that has been developed with an object-oriented design approach using C++ programming language and the SFML library. The game provides players with a graphical interface to engage in a classic game of chess, adhering to standard rules and gameplay mechanics.
 
-The game is built using object-oriented programming principles and the SFML graphics library for rendering. The game offers three different modes: local 2-player mode, 1-player vs AI mode, and online multiplayer mode.
-
-Features:
-
-    Classic game of chess with 2D graphics
-    Object-oriented programming design
-    Local 2-player mode
-  
-The project is built using the SFML graphics library and the code is open-source and available on Github. It's a great example of how to use SFML to create a 2D game, and can be used as a starting point for other game development projects.
+In order to run the game, clone the git repo in your machine and open the sln file with visual studio, or, download the zip file, extract it and run the executable.
