@@ -153,7 +153,7 @@
     <ClCompile Include="include\localBoard\localBoard.cpp" />
     <ClCompile Include="include\movementHandler\movementHandler.cpp" />
     <ClCompile Include="include\tableSquares\tableSquares.cpp" />
-    <ClCompile Include="include\screens\winnerScreen\winnerScreen.cpp" />
+    <ClCompile Include="include\screens\matchResult\matchResult.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\boardStats\boardStats.h" />
@@ -162,7 +162,7 @@
     <ClInclude Include="include\localBoard\localBoard.h" />
     <ClInclude Include="include\movementHandler\movementHandler.h" />
     <ClInclude Include="include\tableSquares\tableSquares.h" />
-    <ClInclude Include="include\screens\winnerScreen\winnerScreen.h" />
+    <ClInclude Include="include\screens\matchResult\matchResult.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

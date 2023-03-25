@@ -16,7 +16,6 @@ void gameController::print_game_status(sf::RenderWindow* window) {
 		delete local_BOARD;
 		local_BOARD = nullptr;
 	}
-
 	//Game mode 1v1 is active
 	if (game_status == 2) 
 	{
@@ -28,8 +27,30 @@ void gameController::print_game_status(sf::RenderWindow* window) {
 		local_BOARD->mouse_position = mouse_position;
 		local_BOARD->buildBoard(window);
 		if (local_BOARD->winner != 0) {
-			game_status = 0;
+			lastWinner = local_BOARD->winner;
+			game_status = 3;
 		}
 	}
+
+	//Match end screen
+	if (game_status != 3 && result_screen != nullptr)
+	{
+		delete result_screen;
+		result_screen = nullptr;
+	}
+
+	if (game_status == 3) {
+
+		//Check a new object is needed
+		if (result_screen == nullptr) {
+			result_screen = new matchResult(lastWinner);
+			cout << "MATCH RESULT SCREEN IS CREATED \n";
+		}
+
+		result_screen->mouse_position = mouse_position;
+		result_screen->displayScreen(window);
+
+	}
+
 
 }

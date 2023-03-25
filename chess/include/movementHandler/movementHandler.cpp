@@ -86,6 +86,7 @@ void movementHandler::movePiece() {
 		selectedPiece = nullptr;
 
 	resetMovement();
+	checkWinner();
 }
 
 void movementHandler::checkWinner() {
@@ -107,7 +108,7 @@ void movementHandler::checkWinner() {
 	if (blackKing == false) {
 		*matchWinner = 1;
 	}
-	if (whiteKing == true ) {
+	if (whiteKing == false ) {
 		*matchWinner = 2;
 	}
 

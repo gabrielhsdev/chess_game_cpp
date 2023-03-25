@@ -132,7 +132,3 @@ int  boardStats::calculatePiece(int x, int y) {
     }
     return 0;
 }
-
-void boardStats::getWinner() {
-
-}

@@ -39,7 +39,7 @@
     <ClCompile Include="include\movementHandler\patterns\movementPatterns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\screens\winnerScreen\winnerScreen.cpp">
+    <ClCompile Include="include\screens\matchResult\matchResult.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClInclude Include="include\tableSquares\tableSquares.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\screens\winnerScreen\winnerScreen.h">
+    <ClInclude Include="include\screens\matchResult\matchResult.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
