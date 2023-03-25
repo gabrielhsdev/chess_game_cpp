@@ -9,11 +9,13 @@ void tableSquares::drawText(sf::RenderWindow* window) {
 
     sf::Text text;
     sf::Font font;
-    if (!font.loadFromFile("font.ttf"))
+
+    if (!font.loadFromFile("lib/font.ttf"))
     {
         cerr << ".Error while loading font" << std::endl;
         return;
     }
+
     text.setFont(font);
     text.setCharacterSize(24);
     text.setFillColor(sf::Color::Black);
@@ -37,6 +39,7 @@ void tableSquares::drawSquare(sf::RenderWindow* window){
 
     //Draw wathever is inside this square
     piece.drawPiece(window);
+
 }
 
 

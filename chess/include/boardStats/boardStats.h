@@ -34,7 +34,7 @@ public:
     //Will override
     virtual void movementHandle(int i, int j, bool selected) = 0;
 
-    void testObj(int test);
+    void getWinner();
 
 };
 

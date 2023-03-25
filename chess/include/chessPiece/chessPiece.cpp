@@ -17,7 +17,7 @@ chessPiece::chessPiece() {
 }
 
 void chessPiece::drawPiece(sf::RenderWindow* window) {
-    //cout << status << "\n";
+
     string image = "";
     if (status == 0 || status > 12) {
         if(status > 12)
@@ -34,14 +34,15 @@ void chessPiece::drawPiece(sf::RenderWindow* window) {
     sprite.setTextureRect(sf::IntRect(pieces[status], 0, 16, 16));
     sprite.setPosition(posXdraw + 8, posYdraw + 8);
     window->draw(sprite);
+
 }
 
 //pawn = 0; knight = 16; rook = 32; bishop = 48; queen = 64; king = 80;
 string chessPiece::getPieceStatus(string stat) {
 
-    if (status == 0) {
+    if (status == 0)
         return "empty";
-    } else if (stat == "name") {
+    else if (stat == "name") {
 
         if (status == 1 || status == 7)
             return "pawn";
@@ -49,27 +50,23 @@ string chessPiece::getPieceStatus(string stat) {
             return "knight";
         if (status == 3 || status == 9)
             return "rook";
-        if (status == 4 || status == 10) {
+        if (status == 4 || status == 10)
             return "bishop";
-        }
         if(status == 5 || status == 11)
             return "queen";
         if(status == 6 || status == 12)
             return "king";
-        else {
+        else
             cerr << "WRONG PIECE STATUS ON GET";
-        } 
 
     }else if (stat == "color") {
 
-        if (status >= 1 && status <= 6) {
+        if (status >= 1 && status <= 6)
             return "black";
-        } else if (status >= 7 && status <= 12) {
+        else if (status >= 7 && status <= 12)
             return "white";
-        }
-        else {
+        else
             cerr << "WRONG PIECE STATUS ON GAT ERR 2";
-        }
 
     } else if (stat == "isalive") {
 
@@ -80,7 +77,6 @@ string chessPiece::getPieceStatus(string stat) {
         else
             cerr << "WRONG PIECE STATUS ON GAT ERR 2";
 
-    } else {
+    }else
         cerr << "WRONG STATUS ASK FOR CON GET PIECE STATUS";
-    }
 }

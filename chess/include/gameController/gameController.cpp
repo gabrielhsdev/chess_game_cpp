@@ -17,7 +17,7 @@ void gameController::print_game_status(sf::RenderWindow* window) {
 		local_BOARD = nullptr;
 	}
 
-	//Check game mode 1v1 is active
+	//Game mode 1v1 is active
 	if (game_status == 2) 
 	{
 		//Check a new object is needed
@@ -27,6 +27,9 @@ void gameController::print_game_status(sf::RenderWindow* window) {
 		}
 		local_BOARD->mouse_position = mouse_position;
 		local_BOARD->buildBoard(window);
+		if (local_BOARD->winner != 0) {
+			game_status = 0;
+		}
 	}
 
 }

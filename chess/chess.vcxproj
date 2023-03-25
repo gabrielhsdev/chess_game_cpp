@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -115,9 +118,12 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Gabriel\Documents\cpp_libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Gabriel\Desktop\cpp_pro\chess\chess\lib\dll;C:\Users\Gabriel\Documents\cpp_libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -140,12 +146,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\gameController\gameController.cpp" />
+    <ClCompile Include="include\movementHandler\patterns\movementPatterns.cpp" />
     <ClCompile Include="src\chess.cpp" />
     <ClCompile Include="include\chessPiece\chessPiece.cpp" />
     <ClCompile Include="include\boardStats\boardStats.cpp" />
     <ClCompile Include="include\localBoard\localBoard.cpp" />
     <ClCompile Include="include\movementHandler\movementHandler.cpp" />
     <ClCompile Include="include\tableSquares\tableSquares.cpp" />
+    <ClCompile Include="include\screens\winnerScreen\winnerScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\boardStats\boardStats.h" />
@@ -154,6 +162,7 @@
     <ClInclude Include="include\localBoard\localBoard.h" />
     <ClInclude Include="include\movementHandler\movementHandler.h" />
     <ClInclude Include="include\tableSquares\tableSquares.h" />
+    <ClInclude Include="include\screens\winnerScreen\winnerScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,7 +19,6 @@ boardStats::boardStats(int widthExt, int heightExt){
         }
     }
     seutpBoard();
-    testObj(widthExt);
 }
 
 //It runs only once, setup pieces
@@ -47,15 +46,16 @@ void boardStats::seutpBoard() {
             start = start + spacing;
 
             //Set square colors
-            squares[i][j].color_action = sf::Color(204, 141, 133);
             if ((i+j)%2 == 0) {
                 squares[i][j].color_default = sf::Color(118, 150, 85);
                 squares[i][j].color_selected = sf::Color(102, 125, 77);
+                squares[i][j].color_action = sf::Color(204, 141, 133);
             }
             else 
             {
                 squares[i][j].color_default =  sf::Color(238, 238, 210);
                 squares[i][j].color_selected = sf::Color(194, 194, 169);
+                squares[i][j].color_action = sf::Color(207, 179, 176);
             }
             squares[i][j].color_active = squares[i][j].color_default;
         }
@@ -133,6 +133,6 @@ int  boardStats::calculatePiece(int x, int y) {
     return 0;
 }
 
-void boardStats::testObj(int test) {
-    cout << "BOARD LOADED" << test << "\n";
+void boardStats::getWinner() {
+
 }

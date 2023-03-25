@@ -12,6 +12,7 @@ class movementHandler
 
 		int selected_X;
 		int selected_Y;
+		int* matchWinner;
 		int * currentRound;
 		bool clicked = false;
 
@@ -20,13 +21,24 @@ class movementHandler
 		chessPiece* selectedPiece = nullptr;
 		tableSquares* tableSquare[8][8];
 
-		void mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8], int * round);
-		void pawnMoves();
-		void movePiece();
+		//Main action functions
+		void mainLoop(chessPiece* piecePtr, bool(&possibleMovesPtr)[8][8], tableSquares(&tableSquarePtr)[8][8], int * round, int * winner);
 		void resetMovement();
 		void setPossibleMoves();
 		bool isMovementPossible();
 		void paintActions();
 		void unpaintActions();
+		void checkWinner();
+
+		//Piece movement
+		void movePiece();
+		void pawnMoves();
+		void pawnToQueen();
+		void rookMoves();
+		void bishopMoves();
+		void knightMoves();
+		void kingMoves();
+		void queenMoves();
+
 };
 

@@ -21,9 +21,6 @@
     <ClCompile Include="src\chess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\tableSquares\tableSquares.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="include\boardStats\boardStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,12 +33,18 @@
     <ClCompile Include="include\movementHandler\movementHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\tableSquares\tableSquares.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\movementHandler\patterns\movementPatterns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\screens\winnerScreen\winnerScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\boardStats\boardStats.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\tableSquares\tableSquares.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gameController\gameController.h">
@@ -54,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\movementHandler\movementHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tableSquares\tableSquares.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\screens\winnerScreen\winnerScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
