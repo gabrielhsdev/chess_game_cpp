@@ -4,34 +4,28 @@ void movementHandler::pawnMoves() {
 
 	resetMovement();
 
-	//Get pawn movement direction
-	int add;
-	string str = piece->getPieceStatus("color");
-	if (piece->getPieceStatus("color") == "white") {
-		add = -1;
-		if (piece->posX == 6)
-			add = -2;
-	}
-	else {
-		add = 1;
-		if (piece->posX == 1)
-			add = 2;
-	}
-
-	int x = selected_X + add;
+	//Default variables
+	int x = selected_X;
 	int y = selected_Y;
+	string str = piece->getPieceStatus("color");
 
-	//Cancel function if we cannot move foward, pawn becomes queen ? (create pawn_to_queen function)
-	if (x > 7 || x < 0)
-		return;
-	
+	//Get pawn movement direction
+	int dir = (str == "white") ? -1 : 1;
 
-	//Check if we can move to the next square
-	if (x >= 0 && x <= 7 && tableSquare[x][y]->piece.status == 0) {
-		*possibleMoves[x][y] = true;
+	//Checkl if pawn can move foward
+	if (tableSquare[x + dir][y]->piece.status == 0) {
+		*possibleMoves[x + dir][y] = true;
+		//Check if +2 is avaliable for pawn
+		if ((str == "white" && x == 6) || (str == "black" && x == 1)) {
+			if (tableSquare[x + (2 * dir)][y]->piece.status == 0) {
+				*possibleMoves[x + (2 * dir)][y] = true;
+			}
+		}
 	}
 
 	//Check for possible attack moves on left and right
+	int xAdd = (str == "white") ? -1 : 1;
+	x = x + xAdd;
 	for (int add = -1; add <= 1; add += 2) {
 		int y_cord = y + add;
 		if (y_cord >= 0 && y_cord <= 7) {

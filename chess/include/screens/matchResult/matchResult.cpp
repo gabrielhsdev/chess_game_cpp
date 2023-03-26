@@ -67,9 +67,9 @@ string matchResult::getMatchWinnerString() {
 
     switch (winner) {
     case 1:
-        return "CURRENT MATCH WINNER IS : WHITE !";
+        return "CURRENT MATCH WINNER IS : WHITE";
     case 2:
-        return "CURRENT MATCH WINNER IS : BLACK !";
+        return "CURRENT MATCH WINNER IS : BLACK";
     default:
         return "Click on START GAME to initiate a new match!";
     }
