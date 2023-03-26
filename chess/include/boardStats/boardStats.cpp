@@ -47,13 +47,13 @@ void boardStats::seutpBoard() {
 
             //Set square colors
             if ((i+j)%2 == 0) {
-                squares[i][j].color_default = sf::Color(118, 150, 85);
+                squares[i][j].color_default = sf::Color(166, 156, 129);
                 squares[i][j].color_selected = sf::Color(102, 125, 77);
                 squares[i][j].color_action = sf::Color(204, 141, 133);
             }
             else 
             {
-                squares[i][j].color_default =  sf::Color(238, 238, 210);
+                squares[i][j].color_default =  sf::Color(122, 113, 87);
                 squares[i][j].color_selected = sf::Color(194, 194, 169);
                 squares[i][j].color_action = sf::Color(207, 179, 176);
             }

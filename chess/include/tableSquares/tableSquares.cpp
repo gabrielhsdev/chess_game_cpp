@@ -32,11 +32,11 @@ void tableSquares::drawText(sf::RenderWindow* window) {
     text.setPosition(posXdraw, posYdraw);
 
     if ((posXid + posYid) % 2 == 0) {
-        sf::Color color(238, 238, 210);
+        sf::Color color(122, 113, 87);
         text.setFillColor(color);
     }
     else {
-        sf::Color color(118, 150, 55);
+        sf::Color color(166, 156, 129);
         text.setFillColor(color);
     }
     
