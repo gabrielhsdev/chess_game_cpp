@@ -156,6 +156,7 @@ void movementHandler::queenMoves(){
 			ny += dy[i];
 		}
 	}
+
 }
 
 void movementHandler::kingMoves() {

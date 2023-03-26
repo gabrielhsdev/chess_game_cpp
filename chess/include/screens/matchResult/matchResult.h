@@ -20,10 +20,12 @@ class matchResult
 		int winner = 0;
 
 		matchResult(int lastWinner);
-		void displayScreen(sf::RenderWindow* window);
-		void clickHandler();
+		void displayScreen(sf::RenderWindow* window, int * game_status);
+		void clickHandler(int * game_status);
 
 		void titleTextDisplay();
 		void btnTextDisplay();
+
+		string getMatchWinnerString();
 
 };

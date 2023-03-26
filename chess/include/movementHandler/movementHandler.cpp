@@ -31,43 +31,41 @@ void movementHandler::setPossibleMoves() {
 	//Mouse click logic here
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clicked == false) {
 		clicked = true;
+
 		//If piece is clicked
 		if (piece->status != 0 && roundOf == piece->getPieceStatus("color")) {
+
 			selectedPiece = piece;
 			unpaintActions();
+
 			if (str == "pawn") {
 				pawnMoves();
-				paintActions();
-			}
-			if (str == "rook") {
+			} else if (str == "rook") {
 				rookMoves();
-				paintActions();
-			}
-			if (str == "bishop") {
+			} else if (str == "bishop") {
 				bishopMoves();
-				paintActions();
-			}
-			if (str == "knight") {
+			} else if (str == "knight") {
 				knightMoves();
-				paintActions();
-			}
-			if (str == "queen") {
+			} else if (str == "queen") {
 				queenMoves();
-				paintActions();
-			} 
-			if (str == "king") {
+			} else if (str == "king") {
 				kingMoves();
-				paintActions();
 			}
+
+			paintActions();
+
 		}
 		//If tile is clicked AFTER piece is selected
 		else if (isMovementPossible() && roundOf == selectedPiece->getPieceStatus("color") && *possibleMoves[selected_X][selected_Y] == true) {
+
 			movePiece();
 			*currentRound = *currentRound + 1;
+
 		}
 	}
 	else
 		clicked = false;
+
 }
 
 void movementHandler::movePiece() {
@@ -79,6 +77,7 @@ void movementHandler::movePiece() {
 		//Check if upgrade is avaliable
 		pawnToQueen();
 
+		//Set late piece to empty square
 		selectedPiece->status = 0;
 
 	}
@@ -87,12 +86,14 @@ void movementHandler::movePiece() {
 
 	resetMovement();
 	checkWinner();
+
 }
 
 void movementHandler::checkWinner() {
 	
 	bool blackKing = false;
 	bool whiteKing = false;
+
 	//6 black 12 white
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
@@ -120,12 +121,12 @@ void movementHandler::pawnToQueen() {
 	string pieceName = selectedPiece->getPieceStatus("name");
 	
 	if (pieceName == "pawn") {
-		if (pieceColor == "white" && selected_X == 0) {
+
+		if (pieceColor == "white" && selected_X == 0)
 			tableSquare[selected_X][selected_Y]->piece.status = 11;
-		}
-		else if (pieceColor == "black" && selected_X == 7) {
+		else if (pieceColor == "black" && selected_X == 7) 
 			tableSquare[selected_X][selected_Y]->piece.status = 5;
-		}
+
 	}
 
 }

@@ -14,12 +14,12 @@ int main()
 {
     int squareSize = (windowwidth) / 8;
 
-    gameController gameCtrl(windowwidth, windowheight);
+    gameController gameCtrl;
     sf::RenderWindow window(sf::VideoMode(windowwidth, windowheight), "Not Chess", sf::Style::Titlebar | sf::Style::Close);
     sf::Vector2i position;
     sf::err().rdbuf(NULL);
 
-    gameCtrl.game_status = 2;
+    gameCtrl.game_status = 3;
 
     //Run program
     while (window.isOpen())

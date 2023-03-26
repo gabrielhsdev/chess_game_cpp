@@ -1,12 +1,6 @@
 #include "../gameController/gameController.h"
 #include <SFML/Graphics.hpp>
 
-gameController::gameController(int windowWidth, int windowHeight)
-{
-    // Constructor implementation, set status to be the menu ? 
-	return;
-}
-
 //This will be running each frame
 void gameController::print_game_status(sf::RenderWindow* window) {
 
@@ -16,6 +10,7 @@ void gameController::print_game_status(sf::RenderWindow* window) {
 		delete local_BOARD;
 		local_BOARD = nullptr;
 	}
+
 	//Game mode 1v1 is active
 	if (game_status == 2) 
 	{
@@ -48,9 +43,8 @@ void gameController::print_game_status(sf::RenderWindow* window) {
 		}
 
 		result_screen->mouse_position = mouse_position;
-		result_screen->displayScreen(window);
-
+		result_screen->displayScreen(window, &game_status);
+		
 	}
-
 
 }
