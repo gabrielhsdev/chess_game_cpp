@@ -8,10 +8,10 @@ chessPiece::chessPiece() {
     sprite.scale(sf::Vector2f(7.f, 7.f));
 
     //Load both textures, cant be in the same if statement, error occurs
-    if (!texture_b.loadFromFile("assets/blackpieces.png")){
+    if (!texture_b.loadFromFile("lib/images/blackpieces.png")){
         cout << "Error loading asset folder\n";
     }
-    if (!texture_w.loadFromFile("assets/whitepieces.png")) {
+    if (!texture_w.loadFromFile("lib/images/whitepieces.png")) {
         cout << "Error loading asset folder\n";
     }
 }

@@ -5,4 +5,5 @@
 /.vs/chess
 /.vs
 /chess/x64/Debug
+/chess/x64/Release
 /x64/Debug
