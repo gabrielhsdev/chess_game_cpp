@@ -27,8 +27,13 @@ public:
 	sf::Color color_selected;
 	sf::Color color_action;
 
+	//Set text
+	sf::Text text;
+	sf::Font font;
+
 	tableSquares();
 	void drawText(sf::RenderWindow* window);
 	void drawSquare(sf::RenderWindow* window);
+	string getIndentification();
 };
 
