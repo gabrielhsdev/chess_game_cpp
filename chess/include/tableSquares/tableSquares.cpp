@@ -3,34 +3,9 @@
 #include <SFML/Graphics.hpp>
 tableSquares::tableSquares() {
 
-    if (!font.loadFromFile("lib/font.ttf"))
-    {
-        cerr << ".Error while loading font" << std::endl;
-        return;
-    }
-
-    text.setFont(font);
-    text.setCharacterSize(24);
+    loadText();
 
     return;
-}
-
-void tableSquares::drawText(sf::RenderWindow* window) {
-
-    //string s = to_string(posXid) + "," + to_string(posYid);
-
-    text.setFillColor(sf::Color::Black);
-    text.setPosition(posXdraw, posYdraw); 
-    text.setString(getIndentification());
-
-    window->draw(text);
-    
-    //Check for last row
-    if (posYid == 7) {
-        text.setPosition(posXdraw, posYdraw);
-        text.setString(getIndentification());
-        window->draw(text);
-    }
 
 }
 
@@ -47,50 +22,91 @@ void tableSquares::drawSquare(sf::RenderWindow* window){
     if(posXid == 7 || posYid == 0)
         drawText(window);
 
-    //Draw wathever is inside this square
+    //Draw square piece
     piece.drawPiece(window);
 
 }
 
-string tableSquares::getIndentification() {
+void tableSquares::drawText(sf::RenderWindow* window) {
+
+    text.setPosition(posXdraw, posYdraw);
+
+    if ((posXid + posYid) % 2 == 0) {
+        sf::Color color(238, 238, 210);
+        text.setFillColor(color);
+    }
+    else {
+        sf::Color color(118, 150, 55);
+        text.setFillColor(color);
+    }
+    
+
+    if (posYid == 0)
+    {
+        text.setString(getIndentification("number"));
+        window->draw(text);
+    }
+
+    if (posXid == 7) {
+        text.setPosition(posXdraw + 110, posYdraw + 100);
+        text.setString(getIndentification("letter"));
+        window->draw(text);
+    }
+
+}
+
+void tableSquares::loadText() {
+
+    if (!font.loadFromFile("lib/font.ttf"))
+    {
+        cerr << ".Error while loading font" << std::endl;
+        return;
+    }
+
+    text.setFont(font);
+    text.setCharacterSize(24);
+
+}
+
+string tableSquares::getIndentification(string row) {
+
     string s = "err on tableSquares.cpp";
 
-    if ( posYid == 0) {
-        s = to_string(posXid);
-    }
-    if (posXid == 7) {
+    if (row == "number")
+        return to_string(posXid);
+    else if (row == "letter") {
         switch (posYid)
         {
-        case 0:
-            s = "a";
-            break;
-        case 1:
-            s = "b";
-            break;
-        case 2:
-            s = "c";
-            break;
-        case 3:
-            s = "d";
-            break;
-        case 4:
-            s = "e";
-            break;
-        case 5:
-            s = "f";
-            break;
-        case 6:
-            s = "g";
-            break;
-        case 7:
-            s = "h";
-            break;
-        default:
-            break;
+            case 0:
+                s = "a";
+                break;
+            case 1:
+                s = "b";
+                break;
+            case 2:
+                s = "c";
+                break;
+            case 3:
+                s = "d";
+                break;
+            case 4:
+                s = "e";
+                break;
+            case 5:
+                s = "f";
+                break;
+            case 6:
+                s = "g";
+                break;
+            case 7:
+                s = "h";
+                break;
+            default:
+                break;
         }
+        return s;
     }
 
-    return s;
 }
 
 

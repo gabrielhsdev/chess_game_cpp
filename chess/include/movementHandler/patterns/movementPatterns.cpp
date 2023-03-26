@@ -7,10 +7,16 @@ void movementHandler::pawnMoves() {
 	//Get pawn movement direction
 	int add;
 	string str = piece->getPieceStatus("color");
-	if (piece->getPieceStatus("color") == "white")
+	if (piece->getPieceStatus("color") == "white") {
 		add = -1;
-	else
+		if (piece->posX == 6)
+			add = -2;
+	}
+	else {
 		add = 1;
+		if (piece->posX == 1)
+			add = 2;
+	}
 
 	int x = selected_X + add;
 	int y = selected_Y;

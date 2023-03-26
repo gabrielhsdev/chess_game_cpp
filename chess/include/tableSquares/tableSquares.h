@@ -10,10 +10,11 @@ class tableSquares
 
 public:
 
-	//One piece per tile
+	//Piece related variables
 	chessPiece piece;
 	int status = 0;
 
+	//Identification variables
 	int posXdraw = 0;
 	int posYdraw = 0;
 	int posXid = 0;
@@ -22,18 +23,22 @@ public:
 	//Color being rendered
 	sf::Color color_active;
 
-	//Saved colors for later
+	//Stored colors for usage
 	sf::Color color_default;
 	sf::Color color_selected;
 	sf::Color color_action;
 
-	//Set text
+	//Text functions
 	sf::Text text;
 	sf::Font font;
 
+	//Constructor
 	tableSquares();
+
+	//Draw functions
+	void loadText();
 	void drawText(sf::RenderWindow* window);
 	void drawSquare(sf::RenderWindow* window);
-	string getIndentification();
+	string getIndentification(string row);
 };
 
