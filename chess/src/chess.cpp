@@ -10,6 +10,7 @@ using namespace std;
 extern int windowheight = 1024;
 extern int windowwidth = 1024;
 
+//Disable console later on debug
 int main()
 {
     int squareSize = (windowwidth) / 8;
